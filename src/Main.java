@@ -3,31 +3,26 @@ import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
-        /*Scanner in = new Scanner(System.in);
+        Scanner in = new Scanner(System.in);
         System.out.print("Сколько чисел вы хотите ввести: ");
         int count = in.nextInt();
         System.out.println("Введите числа:");
-        int[] numbers = new int[count];
-        String[] stringNum = new String[numbers.length];
+        double[] numbers = new double[count];
         for (int i = 0; i < numbers.length; i++) {
             numbers[i] = in.nextInt();
-            stringNum[i] = Integer.toString(numbers[i]);
-        }
-        int max = 0;
-        for (int index : numbers) {
-            if (index > max) {
-                max = index;
+            while (numbers[i] >= 10) {
+                numbers[i] = numbers[i]/10;
             }
         }
-        double maxLog10 = Math.ceil(Math.log10(max + 0.5));
-        int count2 = (int) maxLog10;
-        System.out.println(Arrays.toString(stringNum));
-        int[][] compareMassive = new int[count][count2];*/
-        String test = "15975332568";
-        char[] testArray = new char[test.length()];
-        for (int i = 0; i < test.length(); i++) {
-            testArray[i] = test.charAt(i);
+        Arrays.sort(numbers);
+        for (int i = 0; i < numbers.length; i++) {
+            while (numbers[i] % 1 > 0) {
+                numbers[i] = numbers[i]*10;
+            }
         }
-        System.out.println(Arrays.toString(testArray));
+        System.out.println("Наименьшее составное число из введённых чисел: ");
+        for (double index:numbers) {
+            System.out.print((int)index);
+        }
     }
 }
